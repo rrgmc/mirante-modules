@@ -1,9 +1,18 @@
-# Adds every module folder that has a CMakeLists.txt, in alphabetical order.
-# See docs/modules.md#building.
-file(GLOB module_dirs LIST_DIRECTORIES true CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/*")
-list(SORT module_dirs)
-foreach(dir IN LISTS module_dirs)
-    if(IS_DIRECTORY "${dir}" AND EXISTS "${dir}/CMakeLists.txt")
-        add_subdirectory("${dir}")
-    endif()
-endforeach()
+# This repository's own build, for its CI and for working on a module. It is an
+# app whose modules are the folders here, so that ci/manifest.json takes the
+# place of an app's mirante.json. An app does not run this file. See
+# docs/decisions/0125-how-modules-are-fetched.md in mirante-core.
+cmake_minimum_required(VERSION 3.21)
+
+project(mirante LANGUAGES NONE)
+enable_testing()
+
+set(MIRANTE_MANIFEST "${CMAKE_CURRENT_SOURCE_DIR}/ci/manifest.json")
+set(FETCHCONTENT_SOURCE_DIR_MIRANTE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}")
+file(READ "${MIRANTE_MANIFEST}" manifest)
+string(JSON core_repo GET "${manifest}" core repo)
+string(JSON core_ref GET "${manifest}" core ref)
+
+include(FetchContent)
+FetchContent_Declare(mirante_core GIT_REPOSITORY "${core_repo}" GIT_TAG "${core_ref}")
+FetchContent_MakeAvailable(mirante_core)

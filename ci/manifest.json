@@ -1,0 +1,12 @@
+{
+  "qt": ["Pdf", "PdfWidgets"],
+  "core": { "repo": "https://github.com/rrgmc/mirante-core", "ref": "bbb67d5e60060f21dca4a94da099d24c7d232073" },
+  "modules": [
+    {
+      "name": "mirante_modules",
+      "repo": "this repository",
+      "ref": "this commit",
+      "folders": ["claude", "document", "folder", "github", "gitlab", "image", "jira", "notes", "web"]
+    }
+  ]
+}
