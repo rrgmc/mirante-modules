@@ -12,6 +12,10 @@ This repository is part of the trial of custom builds. It is not usable yet, and
 | [Notes](notes/README.md) | Markdown notes, kept in the task's file |
 | [Web](web/README.md) | Any web page |
 
+## Author
+
+Rangel Reale <realerangel@gmail.com>
+
 ## License
 
 These modules are released under the [MIT License](LICENSE).
