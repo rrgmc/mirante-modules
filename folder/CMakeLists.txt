@@ -1,4 +1,5 @@
 mirante_add_module(folder
+    API       0.1
     SOURCES   FolderView.cpp FolderView.h FolderModule.cpp
               FileTreeView.cpp FileTreeView.h StartEditor.cpp StartEditor.h
     RESOURCES icons/folder.svg icons/tree.svg
