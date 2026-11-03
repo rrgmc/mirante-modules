@@ -1,5 +1,5 @@
 # Builds, tests and packages these modules with the core's workflow, and checks
-# their includes. The ref below must match the core's ref in ci/manifest.json.
+# their includes and translations. The ref below must match the core's ref in ci/manifest.json.
 
 name: CI
 
@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   build:
-    uses: rrgmc/mirante-core/.github/workflows/build-app.yml@60f37560ac9b91d9b60fb1a2e797fdc2e1193f0c
+    uses: rrgmc/mirante-core/.github/workflows/build-app.yml@m-module-translations
     with:
       manifest: ci/manifest.json
-      check-includes: true
+      check-modules: true
