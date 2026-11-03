@@ -18,7 +18,7 @@
       "name": "ci",
       "displayName": "CI: Release, warnings as errors",
       "inherits": "base",
-      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release", "MIRANTE_WERROR": "ON" }
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release", "MIRANTE_WERROR": "ON", "MIRANTE_MODULES_WERROR": "ON" }
     }
   ],
   "buildPresets": [

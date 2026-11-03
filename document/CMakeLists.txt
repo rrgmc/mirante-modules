@@ -1,4 +1,5 @@
 mirante_add_module(document
+    API       0.1
     SOURCES   DocumentModule.cpp
               DocumentEditor.cpp DocumentEditor.h
               DocumentFormat.cpp DocumentFormat.h
