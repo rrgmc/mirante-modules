@@ -6,7 +6,7 @@
       "name": "mirante_modules",
       "repo": "this repository",
       "ref": "this commit",
-      "folders": ["claude", "document", "folder", "github", "gitlab", "image", "jira", "notes", "web"]
+      "folders": ["document", "folder", "image", "notes", "web"]
     }
   ]
 }
