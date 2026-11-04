@@ -6,6 +6,10 @@ A release is tagged when a merged pull request raises `VERSION`. See [decision 0
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-11-04
+
+The system module with its System Resources item type, and web links in the cell header. It needs the core's v0.12.0.
+
 ### Added
 
 - The `system` module, with the System Resources item type: this computer's CPU use, free memory and free disk space, each with a bar, read again every few seconds while the item is visible. The item's settings choose which ones to show, and which disks. See [the system module](system/README.md).
@@ -36,6 +40,7 @@ The first release of the modules on their own, after they were split from `miran
 
 - The modules `claude`, `github`, `gitlab` and `jira`, which moved to [`mirante-modules-work`](https://github.com/rrgmc/mirante-modules-work) with their history.
 
-[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/rrgmc/mirante-modules/compare/v0.8.1...v0.12.0
 [0.8.1]: https://github.com/rrgmc/mirante-modules/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/rrgmc/mirante-modules/tree/v0.8.0
