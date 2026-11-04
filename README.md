@@ -10,6 +10,7 @@ This repository is part of the trial of custom builds. It is not usable yet, and
 | [Folder](folder/README.md) | A project's folder, with its Git state and shortcuts to a terminal and an editor |
 | [Image](image/README.md) | Screenshots or diagrams, with an optional link and memo |
 | [Notes](notes/README.md) | Markdown notes, kept in the task's file |
+| [System](system/README.md) | This computer's CPU use, free memory and free disk space |
 | [Web](web/README.md) | Any web page |
 
 ## Author

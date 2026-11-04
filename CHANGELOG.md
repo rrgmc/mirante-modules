@@ -6,6 +6,10 @@ A release is tagged when a merged pull request raises `VERSION`. See [decision 0
 
 ## [Unreleased]
 
+### Added
+
+- The `system` module, with the System Resources item type: this computer's CPU use, free memory and free disk space, each with a bar, read again every few seconds while the item is visible. The item's settings choose which ones to show, and which disks. See [the system module](system/README.md).
+
 ## [0.8.1] - 2026-11-04
 
 ### Changed
