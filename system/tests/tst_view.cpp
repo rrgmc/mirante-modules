@@ -61,10 +61,10 @@ private slots:
         mirante::testing::FakeItemContext context;
         sys::ResourcesView view(context.config());
         QCOMPARE(valueOf(view, QStringLiteral("cpu")), QStringLiteral("Measuring…"));
-        QTest::qWait(300);
-        view.refresh();
-        QVERIFY2(valueOf(view, QStringLiteral("cpu")).endsWith(QStringLiteral("%")),
-                 qPrintable(valueOf(view, QStringLiteral("cpu"))));
+        // The system's CPU counters may not move between two close readings,
+        // as on a busy macOS runner, so it reads again until they do.
+        QTRY_VERIFY2_WITH_TIMEOUT((view.refresh(), valueOf(view, QStringLiteral("cpu")).endsWith(QStringLiteral("%"))),
+                                  qPrintable(valueOf(view, QStringLiteral("cpu"))), 5000);
     }
 
     void showsOnlyWhatIsChosen()
