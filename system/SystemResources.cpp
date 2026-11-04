@@ -59,7 +59,16 @@ bool isSystemFileSystem(const QByteArray &type)
 
 bool isShown(const QStorageInfo &volume)
 {
-    if (!volume.isValid() || !volume.isReady() || volume.isReadOnly() || volume.bytesTotal() <= 0)
+    if (!volume.isValid() || !volume.isReady() || volume.bytesTotal() <= 0)
+        return false;
+#if defined(Q_OS_MACOS)
+    // "/" is the sealed system volume, which is read-only. It shares its
+    // container with /System/Volumes/Data, so it shows the free space of both.
+    const bool systemRoot = volume.isRoot();
+#else
+    const bool systemRoot = false;
+#endif
+    if (volume.isReadOnly() && !systemRoot)
         return false;
     if (isSystemFileSystem(volume.fileSystemType()))
         return false;

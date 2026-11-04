@@ -37,7 +37,7 @@ A reading that the system does not give shows "Unknown".
 | CPU | `GetSystemTimes` | `host_statistics` with `HOST_CPU_LOAD_INFO` | the first line of `/proc/stat` |
 | Memory | `GlobalMemoryStatusEx`: total and available physical memory | `hw.memsize`, and free plus inactive pages from `host_statistics64` | `MemTotal` and `MemAvailable` of `/proc/meminfo` |
 
-The disks come from `QStorageInfo` on every system. The list of local disks leaves out volumes that are not ready, read-only or empty, memory and kernel file systems such as `tmpfs`, `squashfs` and `overlay`, `/snap/` and `/boot/efi` on Linux, and the system's own volumes under `/System/Volumes/` on macOS, which `/` stands for.
+The disks come from `QStorageInfo` on every system. The list of local disks leaves out volumes that are not ready, read-only or empty, memory and kernel file systems such as `tmpfs`, `squashfs` and `overlay`, `/snap/` and `/boot/efi` on Linux, and the system's own volumes under `/System/Volumes/` on macOS. On macOS it keeps `/`, which is read-only, because `/` shows the free space of the container it shares with `/System/Volumes/Data`.
 
 ## Configuration
 
