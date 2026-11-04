@@ -191,6 +191,8 @@ private slots:
         QCOMPARE(picture->toolTip(), QStringLiteral("https://example.com/diagram"));
         QTest::mouseClick(picture, Qt::LeftButton);
         QCOMPARE(browser.catcher.urls, QList<QUrl>{QUrl(QStringLiteral("https://example.com/diagram"))});
+        // The cell header opens it too.
+        QCOMPARE(m_context().webLink, QUrl(QStringLiteral("https://example.com/diagram")));
     }
 
     void clickWithoutALinkOpensNothing()
@@ -207,6 +209,7 @@ private slots:
         QVERIFY(picture->toolTip().isEmpty());
         QTest::mouseClick(picture, Qt::LeftButton);
         QVERIFY(browser.catcher.urls.isEmpty());
+        QVERIFY(m_context().webLink.isEmpty());
     }
 
     // Only web addresses open; anything else counts as no link.
@@ -218,6 +221,7 @@ private slots:
         std::unique_ptr<QWidget> view(image::createImageView(m_context(), nullptr));
         QVERIFY(!pictureOf(view.get())->testAttribute(Qt::WA_SetCursor));
         QVERIFY(pictureOf(view.get())->toolTip().isEmpty());
+        QVERIFY(m_context().webLink.isEmpty());
     }
 
     void missingFile()

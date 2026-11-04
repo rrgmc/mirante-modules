@@ -22,7 +22,7 @@ Since M3 the type declares its configuration fields, so items can be created and
 
 - The image is scaled to fit the cell, with its aspect ratio kept and smooth scaling, and centred. The file is read once, when the view is made. The scaled copy is made again only when the size changes.
 - The memo is shown under the image as plain text, wrapped and selectable. It is hidden when empty.
-- With a `link` that is an `http` or `https` address, the pointer is a hand over the image, the tooltip is the link, and a click opens it in the external browser. Any other link is ignored.
+- With a `link` that is an `http` or `https` address, the pointer is a hand over the image, the tooltip is the link, and a click opens it in the external browser. The cell header's **Open in browser** button opens it too, through `ItemContext::setWebLink()`; see [decision 0148](https://github.com/rrgmc/mirante-core/blob/master/docs/decisions/0148-web-link-in-the-cell-header.md). Any other link is ignored.
 - A missing file shows "The image file is missing." A file that is not an image shows "The image file cannot be read." Both use `ItemContext::createMessageView()`.
 
 A change of `file`, such as a new image pasted with `Ctrl+V`, makes the view again, so it shows the new image.

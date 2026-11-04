@@ -304,6 +304,8 @@ private slots:
                               {QStringLiteral("originalName"), QStringLiteral("notes.md")}};
         auto view = make(QStringLiteral("document.file"), context);
         QVERIFY(dynamic_cast<MarkdownView *>(page(view.get())));
+        // A file has no web link.
+        QVERIFY(context.webLink.isEmpty());
 
         context.itemConfig.insert(QStringLiteral("file"), QStringLiteral("gone.md"));
         view = make(QStringLiteral("document.file"), context);
@@ -319,6 +321,8 @@ private slots:
         FakeContext context;
         context.itemConfig = {{QStringLiteral("url"), server.url(QStringLiteral("README.md")).toString()}};
         auto view = make(QStringLiteral("document.url"), context);
+        // The cell header opens the document's address.
+        QCOMPARE(context.webLink, server.url(QStringLiteral("README.md")));
         QTRY_VERIFY(dynamic_cast<MarkdownView *>(page(view.get())));
         auto *markdown = dynamic_cast<MarkdownView *>(page(view.get()));
         QCOMPARE(markdown->markdownText(), QStringLiteral("# Remote"));
