@@ -105,6 +105,9 @@ private:
 QWidget *createImageView(ItemContext &context, QWidget *parent)
 {
     const QJsonObject config = context.config();
+    // The cell header opens the link too, also when the image is missing.
+    const QUrl link = webLink(config.value(QStringLiteral("link")).toString());
+    context.setWebLink(link);
     const QString fileName = config.value(QStringLiteral("file")).toString();
     const QString path = fileName.isEmpty() ? QString() : context.filePath(fileName);
     if (path.isEmpty()) {
@@ -127,7 +130,7 @@ QWidget *createImageView(ItemContext &context, QWidget *parent)
     auto *view = new QWidget(parent);
     auto *layout = new QVBoxLayout(view);
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->addWidget(new Picture(image, webLink(config.value(QStringLiteral("link")).toString()), view), 1);
+    layout->addWidget(new Picture(image, link, view), 1);
 
     auto *memo = new QLabel(view);
     memo->setObjectName(QStringLiteral("memo"));
