@@ -6,6 +6,12 @@ A release is tagged when a merged pull request raises `VERSION`. See [decision 0
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-11-04
+
+### Changed
+
+- CI builds against the core's v0.8.1, and the release workflow publishes a GitHub release with each tag.
+
 ## [0.8.0] - 2026-11-03
 
 The first release of the modules on their own, after they were split from `mirante` for custom builds.
@@ -21,5 +27,6 @@ The first release of the modules on their own, after they were split from `miran
 
 - The modules `claude`, `github`, `gitlab` and `jira`, which moved to [`mirante-modules-work`](https://github.com/rrgmc/mirante-modules-work) with their history.
 
-[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/rrgmc/mirante-modules/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/rrgmc/mirante-modules/tree/v0.8.0
