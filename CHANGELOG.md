@@ -6,6 +6,10 @@ A release is tagged when a merged pull request raises `VERSION`. See [decision 0
 
 ## [Unreleased]
 
+### Added
+
+- The `system` module, with the System Resources item type: this computer's CPU use, free memory and free disk space, each with a bar, read again every few seconds while the item is visible. The item's settings choose which ones to show, and which disks. See [the system module](system/README.md).
+
 ### Changed
 
 - The cell header's **Open in browser** button opens a Web document's address and an image's link. The views give them with `ItemContext::setWebLink()`, and a click on an image still opens its link. Web page items get the button from the core. See [decision 0148](https://github.com/rrgmc/mirante-core/blob/master/docs/decisions/0148-web-link-in-the-cell-header.md) in the core.
