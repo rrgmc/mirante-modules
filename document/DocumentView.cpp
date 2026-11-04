@@ -143,6 +143,12 @@ public:
         connect(m_source.get(), &DocumentSource::failed, this, [this](const QString &message) { fail(message); });
         connect(m_source.get(), &DocumentSource::changed, this, [this] { m_source->load(); });
 
+        // A downloaded document's address opens from the cell header. A file
+        // has none.
+        const QUrl location = m_source->location();
+        if (location.scheme() == QLatin1String("http") || location.scheme() == QLatin1String("https"))
+            m_context.setWebLink(location);
+
         showMessage(QCoreApplication::translate("document", "Loading…"));
         m_source->load();
     }

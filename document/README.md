@@ -32,6 +32,7 @@ The module links Qt Network, Qt PDF and Qt PDF Widgets with `QT_LIBS`.
 `createDocumentView()` makes the view the three types share, from a `DocumentSource`.
 
 - **The bar:** **Reload** reads the file again. **Open** opens it in the external program, from the source's location: the web address, or the local file. A failed reload of a file already shown keeps it, and the bar says "Could not reload: <reason>."
+- **The cell header:** for `document.url`, the view gives the address to `ItemContext::setWebLink()`, so the header's **Open in browser** button opens it. Files have no web link. See [decision 0148](https://github.com/rrgmc/mirante-core/blob/master/docs/decisions/0148-web-link-in-the-cell-header.md).
 - **Format:** `chooseFormat()` takes the `format` setting, else the file name's extension, else the server's `Content-Type`. An unknown format says "This file's format is not known. Choose one in the item's settings."
 - **Size:** Markdown and text larger than 5 MB, and PDF larger than 50 MB, say "This file is too large to show." No file larger than 50 MB is read or downloaded.
 - **Markdown:** the view kit's `MarkdownView`, with a fetcher. Relative images resolve against the source's location. `ResourceFetcher` downloads `http` and `https` images and reads local ones only inside the project folder, each up to 10 MB. Relative links open externally only for project files.
