@@ -6,6 +6,14 @@ A release is tagged when a merged pull request raises `VERSION`. See [decision 0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-11-09
+
+Changelog fragments, and CI for the merge queue. It needs the core's v0.15.0.
+
+### Changed
+
+- Pull requests add their changelog entries as fragments in `changelog.d/`, and a release moves them into this file with the core's `tools/release-changelog.py`. See [decision 0154](https://github.com/rrgmc/mirante-core/blob/master/docs/decisions/0154-changelog-fragments.md) in the core.
+
 ## [0.13.0] - 2026-11-05
 
 A more reliable test of the system module. It needs the core's v0.12.0.
@@ -48,7 +56,8 @@ The first release of the modules on their own, after they were split from `miran
 
 - The modules `claude`, `github`, `gitlab` and `jira`, which moved to [`mirante-modules-work`](https://github.com/rrgmc/mirante-modules-work) with their history.
 
-[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/rrgmc/mirante-modules/compare/v0.15.0...HEAD
+[0.15.0]: https://github.com/rrgmc/mirante-modules/compare/v0.13.0...v0.15.0
 [0.13.0]: https://github.com/rrgmc/mirante-modules/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/rrgmc/mirante-modules/compare/v0.8.1...v0.12.0
 [0.8.1]: https://github.com/rrgmc/mirante-modules/compare/v0.8.0...v0.8.1
